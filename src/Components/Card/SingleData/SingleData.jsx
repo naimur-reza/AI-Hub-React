@@ -1,7 +1,8 @@
 import React from "react";
 
 const SingleData = (props) => {
-  const { id, name, description, image, features, published_in } = props.data;
+  const { id, name, image, features, published_in } = props.data;
+  const setUniqueId = props.setUniqueId;
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -38,7 +39,10 @@ const SingleData = (props) => {
                 <div>{published_in}</div>
               </div>
               <div>
-                <span className="cursor-pointer">
+                <label
+                  onClick={() => setUniqueId(id)}
+                  htmlFor="my-modal-5"
+                  className="cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -52,7 +56,7 @@ const SingleData = (props) => {
                       d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
                     />
                   </svg>
-                </span>
+                </label>
               </div>
             </div>
           </div>

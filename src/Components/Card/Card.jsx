@@ -8,6 +8,8 @@ const Card = (props) => {
   const [uniqueId , setUniqueId] = useState(null);
   const [singleData , setSingleData] = useState({});
 
+
+
   // fetch single modal data from api
   useEffect(()=> {
     fetch(`https://openapi.programming-hero.com/api/ai/tool/${uniqueId}`)
@@ -19,6 +21,7 @@ const Card = (props) => {
   };
   return (
     <>
+
       <div className="grid grid-cols-1 mt-6 md:grid-cols-3 px-20 justify-items-center  gap-10 ">
         {props.data.slice(0, showAll ? 12 : 6).map((singleData) => (
           <SingleData data={singleData} key={singleData.id} setUniqueId={setUniqueId}></SingleData>

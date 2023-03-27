@@ -1,0 +1,26 @@
+import { useState } from "react";
+import Button from "../Button/Button";
+import SingleData from "./SingleData/SingleData";
+
+const Card = (props) => {
+  const [showAll, setShowAll] = useState(false);
+  const handleSHowAll = () => {
+    setShowAll(true);
+  };
+  return (
+    <>
+      <div className="grid grid-cols-1 mt-6 md:grid-cols-3 px-20 justify-items-center  gap-10 ">
+        {props.data.slice(0, showAll ? 12 : 6).map((singleData) => (
+          <SingleData data={singleData} key={singleData.id}></SingleData>
+        ))}
+      </div>
+      {!showAll && (
+        <span onClick={handleSHowAll}>
+          <Button>See More</Button>
+        </span>
+      )}
+    </>
+  );
+};
+
+export default Card;
